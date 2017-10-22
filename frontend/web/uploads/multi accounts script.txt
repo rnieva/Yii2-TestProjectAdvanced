@@ -1,0 +1,10 @@
+nano input : it's newStaff.tab
+
+r.njimenez@vpn:/tmp$ cat input | while read username firstname surname mag code uid shapass ; do sed -e "s/USERNAME/$username/g" -e "s/FIRSTNAME/$firstname/g" -e "s/SURNAME/$surname/g" -e "s/MAGSTRIPE/mag/g" -e "s/STAFFCODE/code/g" -e "s/UIDNUMBER/$uid/g" -e "s|SHAPASSWORD|$shapass|g" template >> output ; done
+
+
+less output
+
+perl SopPasswd-01.pl
+
+/usr/sbin/slappasswd -h "{SHA}" -s <userpassword>
