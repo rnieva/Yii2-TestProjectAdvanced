@@ -1,0 +1,27 @@
+dn: uid=USERNAME,ou=Users,dc=gxy,dc=org,dc=uk
+apple-user-picture: /Network/Library/Images/People/USERNAME.tiff
+cn: FIRSTNAME SURNAME
+dialupaccess: access_attr
+gecos: FIRSTNAME SURNAME
+gidnumber: 3000
+givenname: FIRSTNAME
+gxymagstripedata: MAGSTRIPE
+gxymoodleid: MOODLEID
+homedirectory: /Users/USERNAME
+loginshell: /bin/trueSTAFF
+mail: USERNAME@gxy.org.uk
+mailhost: gpo.gxy.org.uk
+mailroutingaddress: USERNAME@gpo.gxy.org.uk
+objectclass: inetLocalMailRecipient
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+objectclass: apple-user
+objectclass: gxyPerson
+objectclass: radiusprofile
+sn: SURNAME
+uid: USERNAME
+uidnumber: UIDNUMBER
+userpassword: SHAPASSWORD

@@ -38,7 +38,7 @@ class ScriptOneUserGeneratorController extends Controller
 
             //if the user doesn't have moodleid, delete this line from $varfile
             $boolmoodleid = $POST_VARIABLE['boolmoodleid'];
-            $file = '/var/www/html/TestProject/resources/template.txt';
+            $file = '/var/www/html/TestProjectAdvanced/resources/template.txt';
             $varfile= file_get_contents($file);
 
             if ($boolmoodleid == 0)

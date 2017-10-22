@@ -24,9 +24,9 @@ class ScriptOneUserImportfileController extends Controller
                 $model->file = UploadedFile::getInstance($model, 'file');
                 if ($model->file != null) {
                     $model->upload();
-                    $fileU = '/var/www/html/TestProject/web/uploads/' . $model->file->baseName . '.' . $model->file->extension;
+                    $fileU = '/var/www/html/TestProjectAdvanced/frontend/web/uploads/' . $model->file->baseName . '.' . $model->file->extension;
                     $fp = fopen($fileU, 'r');
-                    $fileTemplate = '/var/www/html/TestProject/resources/template.txt';
+                    $fileTemplate = '/var/www/html/TestProjectAdvanced/resources/template.txt';
                     $varFileTemplate = file_get_contents($fileTemplate);
                     $i= 0;
                     while (!feof($fp)) {
@@ -59,7 +59,7 @@ class ScriptOneUserImportfileController extends Controller
                 //data from text area
                 if ($model->datausers != null) {
                     $fp = $model->datausers;
-                    $fileTemplate = '/var/www/html/TestProject/resources/template.txt';
+                    $fileTemplate = '/var/www/html/TestProjectAdvanced/resources/template.txt';
                     $varFileTemplate = file_get_contents($fileTemplate);
                     $i= 0;
                     foreach(preg_split("/((\r?\n)|(\r\n?))/", $fp) as $line)

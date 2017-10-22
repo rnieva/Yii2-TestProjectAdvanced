@@ -30,7 +30,7 @@ class ScriptOneUserController extends Controller
             $shapass = $POST_VARIABLE['shapass'];
             $moodleid = $POST_VARIABLE['moodleid'];
             $magstripe = $POST_VARIABLE['magstripe'];
-            $file = '/var/www/html/TestProject/resources/template.txt';
+            $file = '/var/www/html/TestProjectAdvanced/resources/template.txt';
             $varfile= file_get_contents($file);
             $search  = array('USERNAME', 'FIRSTNAME', 'SURNAME', 'MAGSTRIPE', 'MOODLEID', 'UIDNUMBER','SHAPASSWORD');
             $replace = array($username, $firstname, $surname, $magstripe, $moodleid, $uidnumber, $shapass);
