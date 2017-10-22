@@ -7,10 +7,12 @@ $this->title = 'My 1 Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>LDIF Generator</h1>
-
-        <p class="lead">In this app a user can generate different ldif (Lightweight Directory Access Protocol)  plain text data to create a ldap record.
-        </p>
+        <h1>Yii2 Test Project</h1>
+        <li>LDIF Generator:
+        In this app a user can generate different ldif (Lightweight Directory Access Protocol)  plain text data to create a ldap record.
+        </li>
+        <li>DB Managed: CRUD</li>
+        <li>Maps</li>
 
     </div>
 
