@@ -1,4 +1,6 @@
-YII2 Test Project
+YII2 Test Project 
+(first steps from [Yii2-TestProject](https://github.com/rnieva/Yii2-TestProject))
+
 
 In this app a user can generate different ldif (Lightweight Directory Access Protocol)  plain text data to create a ldap record.
 
