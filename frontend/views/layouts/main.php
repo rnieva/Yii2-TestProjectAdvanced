@@ -68,8 +68,8 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-left'],
         'items' => [
 
-            ['label' => 'Create User Account', 'items' => [
-                ['label' => 'Create a new user account', 'url' => ['/create-user-account/entry']],
+            ['label' => 'Maps', 'items' => [
+                ['label' => 'Map', 'url' => ['/map/entry']],
             ]],
 
         ],

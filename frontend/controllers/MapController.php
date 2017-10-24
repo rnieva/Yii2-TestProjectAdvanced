@@ -11,7 +11,7 @@ use app\models\DatauserInput;
 use app\models\EntryForm;
 
 
-class CreateUserAccountController extends Controller
+class MapController extends Controller
 {
     public function actionEntry() //CreateUser
     {
@@ -28,24 +28,5 @@ class CreateUserAccountController extends Controller
         }
     }
 
-    public function CreateFileMaker(){
-
-    }
-
-    public function CreatePOS(){
-
-    }
-
-    public function CreatePASS(){
-
-    }
-
-    public function CreateLDAP(){
-
-    }
-
-    public function CreateAD(){
-
-    }
 
 }

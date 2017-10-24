@@ -2,13 +2,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
-<p class="lead">Create a new user account</p>
-<p>Create FileMaker record</p>
-<p>Create POS account</p>
-<p>Create user in PASS</p>
-<p>Create user in LDAP</p>
-<p>Create user in AD</p>
-
+<p class="lead">Managing Maps</p>
+<p>Map</p>
 
 
 <?php $form = ActiveForm::begin(); ?>
