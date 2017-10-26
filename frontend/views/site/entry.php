@@ -1,19 +1,13 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 ?>
 <?php $form = ActiveForm::begin(); ?>
 
 
-<!-- begin(
-        [
-        'action' => '/login',
-        'options' => [
-        'class' => 'userform'
-        ]
-        ]
-      );-->
 
+    <?=  $form->field($model, 'title[]')->dropDownList(['Mr' => 'Mr', 'Mrs' => 'Mrs', 'Miss' => 'Miss', 'Ms' => 'Ms' ]); ?>
 
 
 

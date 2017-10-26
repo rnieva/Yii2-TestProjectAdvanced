@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use app\models\EntryForm;
+use yii\helpers\ArrayHelper;
 
 /**
  * Site controller
@@ -23,10 +24,14 @@ class SiteController extends Controller
     {
         $model = new EntryForm();
 
+
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // valid data received in $model
 
-            // do something meaningful here about $model ...
+            $POST_VARIABLE=Yii::$app->request->post('EntryForm');
+            $title  = $POST_VARIABLE['title'];
+            $model->title = $title[0];
 
             return $this->render('entry-confirm', ['model' => $model]);
         } else {

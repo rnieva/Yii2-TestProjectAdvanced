@@ -9,6 +9,7 @@ class EntryForm extends Model
 {
     public $name;
     public $email;
+    public $title;
 
     public function rules()         //Como las anotaciones
     {
