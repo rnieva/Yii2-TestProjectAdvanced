@@ -15,6 +15,8 @@ class MapController extends Controller
 {
     public function actionEntry() //CreateUser
     {
+        //read a value from a external file
+
         $model = new EntryForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
