@@ -76,6 +76,17 @@ AppAsset::register($this);
 
     ]);
 
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'items' => [
+
+            ['label' => 'Views', 'items' => [
+                ['label' => 'Test Views', 'url' => ['/partial-views/entry']],
+            ]],
+
+        ],
+
+    ]);
 
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],

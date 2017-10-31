@@ -5,7 +5,9 @@ use yii\widgets\ActiveForm;
 <p class="lead">Managing Maps</p>
 <p>Map</p>
 
+<!--read params from params-local.php and params.php-->
 <?=    Yii::$app->params['apiKeyMaps'] ?>
+
 
 <?php $form = ActiveForm::begin(); ?>
 

@@ -13,6 +13,7 @@ $this->title = 'My 1 Yii Application';
         </li>
         <li>DB Managed: CRUD</li>
         <li>Maps</li>
+        <li>Partial Views</li>
 
     </div>
 
