@@ -10,11 +10,18 @@ namespace frontend\controllers;
 
 
 use yii\web\Controller;
+use yii\web\Session;
+
+
 
 class PartialViewsController extends Controller
 {
     public function actionEntry()
     {
+//        $session = new Session;
+//        $session->open();
+//        $session = Yii::$app->session;
+//        $language = $session->get('language');
         $ok = true;
         if ( $ok == true ) {
 
@@ -42,9 +49,42 @@ class PartialViewsController extends Controller
         return $this->renderPartial('view3');
     }
 
-    public function actionView4()
+    public function actionView4($id)
     {
-        return $this->renderPartial('view4');
+//        if (Yii::$app->request->isPjax){
+//
+//        }else{
+//
+//        }
+        return $this->renderPartial('view4',['id'=> $id]);
     }
 
+    public function actionVote()
+    {
+        return $this->render('vote');
+    }
+
+    public function actionUpvote()
+    {
+        $votes = Yii::$app->session->get('votes', 0);
+        Yii::$app->session->set('votes', ++$votes);
+        return $this->render('vote');
+    }
+
+    public function actionDownvote()
+    {
+        $votes = Yii::$app->session->get('votes', 0);
+        Yii::$app->session->set('votes', --$votes);
+        return $this->render('vote');
+    }
+
+    public function actionTime()
+    {
+        return $this->render('time-date', ['response' => date('H:i:s')]);
+    }
+
+    public function actionDate()
+    {
+        return $this->render('time-date', ['response' => date('Y-M-d')]);
+    }
 }

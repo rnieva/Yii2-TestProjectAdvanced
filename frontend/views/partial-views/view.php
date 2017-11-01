@@ -3,8 +3,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use yii\widgets\Pjax;
+use yii\helpers\Url;
 
 
+$response = "";
 ?>
 <p class="lead">Test view to try different partial view</p>
 
@@ -33,19 +36,44 @@ use common\widgets\Alert;
     <?=$this->render('view2.php')?>
 </div>
 <div class="row">
-
+    <div id="test"></div>
 </div>
 <div class="row">
-
+    <div id="view4"></div>
 </div>
 
 
+
+<?php Pjax::begin() ?>
+
+<?= Html::a(
+    'View4',
+    Url::to(['partial-views/view4','id'=>"23"]),
+    ['data-pjax'=> '#view4'] //data-pjax'=> '#view4 no esta funcionando
+) ?>
+
+<?php Pjax::end(); ?>
+
+
+
+<?php Pjax::begin(['enablePushState' => false]); ?>
+<?= Html::a('', ['partial-views/upvote'], ['class' => 'btn btn-lg btn-warning glyphicon glyphicon-arrow-up']) ?>
+<?= Html::a('', ['partial-views/downvote'], ['class' => 'btn btn-lg btn-primary glyphicon glyphicon-arrow-down']) ?>
+<h1><?= Yii::$app->session->get('votes', 0) ?></h1>
+<?php Pjax::end(); ?>
+
+
+<?php Pjax::begin(); ?>
+<?= Html::a("Show Time", ['partial-views/time'], ['class' => 'btn btn-lg btn-primary']) ?>
+<?= Html::a("Show Date", ['partial-views/date'], ['class' => 'btn btn-lg btn-success']) ?>
+<h1>It's: <?= $response ?></h1>
+<?php Pjax::end(); ?>
 
 
 
 <script type="text/javascript">
-    $("#emailTo").click(function(){
-        $.get("/PartialViews/View3", function(){$("#emailToContent").html();}
+    $("#test").click(function(){
+        $.get("partial-views/view3", function(){$("#test").html();}
     });
 </script>
 
