@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+
 ?>
 <p class="lead">This page create a LDIF info based in a template using the data users</p>
 <p class="lead">Automatic generation of UserName, MagStripe, UserPass, HashPass </p>

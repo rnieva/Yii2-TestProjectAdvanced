@@ -15,11 +15,11 @@ class PartialViewsController extends Controller
 {
     public function actionEntry()
     {
+        $ok = true;
+        if ( $ok == true ) {
 
-        if (load(Yii::$app->request->post()) ) {
-
-            $POST_VARIABLE=Yii::$app->request->post('text');
-            $text  = $POST_VARIABLE['text'];
+//            $POST_VARIABLE=Yii::$app->request->post('text');
+//            $text  = $POST_VARIABLE['text'];
 
             return $this->render('view');
         } else {
@@ -27,4 +27,24 @@ class PartialViewsController extends Controller
             return $this->render('view');
         }
     }
+    public function actionView1()
+    {
+        return $this->renderPartial('view1');
+    }
+
+    public function actionView2()
+    {
+        return $this->renderPartial('view2');
+    }
+
+    public function actionView3()
+    {
+        return $this->renderPartial('view3');
+    }
+
+    public function actionView4()
+    {
+        return $this->renderPartial('view4');
+    }
+
 }
