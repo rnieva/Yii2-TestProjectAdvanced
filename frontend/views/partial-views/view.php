@@ -56,18 +56,15 @@ $response = "";
 
 
 
-<?php Pjax::begin(['enablePushState' => false]); ?>
-<?= Html::a('', ['partial-views/upvote'], ['class' => 'btn btn-lg btn-warning glyphicon glyphicon-arrow-up']) ?>
-<?= Html::a('', ['partial-views/downvote'], ['class' => 'btn btn-lg btn-primary glyphicon glyphicon-arrow-down']) ?>
-<h1><?= Yii::$app->session->get('votes', 0) ?></h1>
-<?php Pjax::end(); ?>
-
-
 <?php Pjax::begin(); ?>
-<?= Html::a("Show Time", ['partial-views/time'], ['class' => 'btn btn-lg btn-primary']) ?>
-<?= Html::a("Show Date", ['partial-views/date'], ['class' => 'btn btn-lg btn-success']) ?>
-<h1>It's: <?= $response ?></h1>
+<?= Html::beginForm(['partial-views/form-submission'], 'post', ['data-pjax' => '', 'class' => 'form-inline']); ?>
+<?= Html::input('text', 'string', Yii::$app->request->post('string'), ['class' => 'form-control']) ?>
+<?= Html::submitButton('Hash String', ['class' => 'btn btn-lg btn-primary', 'name' => 'hash-button']) ?>
+<?= Html::endForm() ?>
+<?= $stringHash ="" ?>
+<h3><?= $stringHash ?></h3>
 <?php Pjax::end(); ?>
+
 
 
 
@@ -78,4 +75,11 @@ $response = "";
 </script>
 
 
+<div id="partial"></div>
+<button type="button" id="load-partial" />
 
+<script type="text/javascript">
+    $('#load-partial').click(function(){
+    $('#partial').load('/partial-views/view3');
+    });
+</script>

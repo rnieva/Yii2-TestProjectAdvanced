@@ -59,32 +59,18 @@ class PartialViewsController extends Controller
         return $this->renderPartial('view4',['id'=> $id]);
     }
 
-    public function actionVote()
-    {
-        return $this->render('vote');
-    }
+//http://blog.neattutorials.com/yii2-pjax-tutorial/
 
-    public function actionUpvote()
+    public function actionFormSubmission()
     {
-        $votes = Yii::$app->session->get('votes', 0);
-        Yii::$app->session->set('votes', ++$votes);
-        return $this->render('vote');
-    }
-
-    public function actionDownvote()
-    {
-        $votes = Yii::$app->session->get('votes', 0);
-        Yii::$app->session->set('votes', --$votes);
-        return $this->render('vote');
-    }
-
-    public function actionTime()
-    {
-        return $this->render('time-date', ['response' => date('H:i:s')]);
-    }
-
-    public function actionDate()
-    {
-        return $this->render('time-date', ['response' => date('Y-M-d')]);
+//         $security = new Security();
+//        $string = Yii::$app->request->post('string');
+        $stringHash = 'test';
+//        if (!is_null($string)) {
+//            $stringHash = $security->generatePasswordHash($string);
+//        }
+        return $this->render('view', [
+            'stringHash' => $stringHash,
+        ]);
     }
 }
