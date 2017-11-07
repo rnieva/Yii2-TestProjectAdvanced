@@ -83,3 +83,5 @@ $response = "";
     $('#partial').load('/partial-views/view3');
     });
 </script>
+
+<div>CheckBox</div>

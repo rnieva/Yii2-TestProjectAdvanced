@@ -20,8 +20,7 @@ class MapController extends Controller
         $model = new EntryForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // valid data received in $model
-            // stages: FileMaker, POS, PASS, LDAP, AD
+
 
             return $this->render('entry-confirm', ['model' => $model]);
         } else {
