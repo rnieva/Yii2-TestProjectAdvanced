@@ -28,7 +28,25 @@ $map = new Map([
 ]);
 
 $geo_coding_client = new \dosamigos\google\maps\services\GeocodingClient();
+//$lookup_response = $geo_coding_client->lookup([
+//    'address' => 'Stationsplein, 1012 AB Amsterdam',
+//    'region'  => 'Netherlands',
+//]);
+$lookup_response = $geo_coding_client->lookup([
+    'address' => $model->city,
+]);
+$lat = isset($lookup_response->results[0]->geometry->location->lat) ? $lookup_response->results[0]->geometry->location->lat : null;
+$lng = isset($lookup_response->results[0]->geometry->location->lng) ? $lookup_response->results[0]->geometry->location->lng : null;
 
+//if (!is_null($lat) && !is_null($lng)) {
+//    $marker = new \dosamigos\google\maps\overlays\Marker([
+//        'position' => new \dosamigos\google\maps\LatLng([
+//            'lat' => $lat,
+//            'lng' => $lng,
+//        ]),
+//        'title'    => 'Station Amsterdam',
+//    ]);
+//}
 
 // Lets add a marker now
 $marker = new Marker([
@@ -41,9 +59,25 @@ $marker->attachInfoWindow(
         'content' => '<p>This is my home town</p>'
     ])
 );
-$map->addOverlay($marker);
+$circle = new \dosamigos\google\maps\overlays\Circle([
+    'center' => $coord,
+    'strokeColor'=> '#FF0000',
+    'strokeOpacity'=> 0.8,
+    'strokeWeight'=> 2,
+    'fillColor'=> '#FF0000',
+    'fillOpacity'=> 0.35
+]);
+
+
+// Add it now to the map
+$map->addOverlay($circle);
+
+
+//$map->addOverlay($marker);
 // Display the map
 //echo $map->display();
+$map->center = $map->getMarkersCenterCoordinates();
+$map->zoom = $map->getMarkersFittingZoom() - 1;
 echo $map->display();
 
 ?>
