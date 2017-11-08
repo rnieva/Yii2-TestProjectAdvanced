@@ -40,14 +40,13 @@ $marker->attachInfoWindow(
 );
 $map->addOverlay($marker);
 // Display the map
-//echo $map->display();
+echo $map->display();
 ?>
 
 <p></p>
-<div class="row">
-    <div class="col-lg-10">
-        <?=  $map->display(); ?>
-    </div>
+
+
+
 
 <?=
 $coord = new LatLng(['lat' => 39.720089311812094, 'lng' => 2.91165944519042]);
@@ -83,10 +82,47 @@ $map2->appendScript($bikeLayer->getJs());
 
 
 // Display the map
-//echo $map2->display(); ?>
+//echo $map2->display();
 
-    <div class="col-lg-6">
-        <?=  $map2->display(); ?>
-    </div>
-</div>
+echo $map2->display(); ?>
+
+<p></p>
+
+<?=
+
+$coord = new LatLng(['lat' => 28.774252, 'lng' => -75.190262]);
+$map3 = new Map([
+'center' => $coord,
+'zoom' => 4,
+]);
+
+// Now lets write a polygon
+$coords = [
+new LatLng(['lat' => 25.774252, 'lng' => -80.190262]),
+new LatLng(['lat' => 18.466465, 'lng' => -66.118292]),
+new LatLng(['lat' => 32.321384, 'lng' => -64.75737]),
+new LatLng(['lat' => 25.774252, 'lng' => -80.190262])
+];
+
+$polygon = new Polygon([
+'paths' => $coords,
+'strokeColor'=> '#FF0000',
+'strokeOpacity'=> 0.8,
+'strokeWeight'=> 2,
+'fillColor'=> '#FF0000',
+'fillOpacity'=> 0.35
+]);
+
+// Add it now to the map
+$map3->addOverlay($polygon);
+
+// Lets show the BicyclingLayer :)
+$bikeLayer = new BicyclingLayer(['map' => $map3->getName()]);
+
+// Append its resulting script
+$map3->appendScript($bikeLayer->getJs());
+
+// Display the map -finally :)
+echo $map3->display(); ?>
+
 

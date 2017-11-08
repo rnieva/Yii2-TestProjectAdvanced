@@ -69,7 +69,8 @@ AppAsset::register($this);
         'items' => [
 
             ['label' => 'Maps', 'items' => [
-                ['label' => 'Map', 'url' => ['/map/entry']],
+                ['label' => 'Test Map', 'url' => ['/map/test']],
+                ['label' => 'Bomb Map', 'url' => ['/map/entry']],
             ]],
 
         ],
