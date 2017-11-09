@@ -1,7 +1,13 @@
 <?php
 use yii\helpers\Html;
 use app\controllers\ScriptOneUserGeneratorController;
+use yii\widgets\ActiveForm;
+
+/* @var $model app\models\DataUser */
 ?>
+
+
+
 <p>You have entered the following information:</p>
 
 <ul>
@@ -17,9 +23,26 @@ use app\controllers\ScriptOneUserGeneratorController;
     <p>
         <?= Html::a('Test2', ['script-one-user-generator/entry'], ['class' => 'btn btn-success']) ?>
     </p>
+
+
     <p>
-        <?= Html::a('Test3', ['ScripOneUserGenerator/Entry'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Send Model', ['site/send', 'model' => $model], ['class' => 'btn btn-success']) ?>
     </p>
-<!--    --><?//= Yii::$app->runAction('ScripOneUserGenerator/Entry') ?>
-<!--    --><?//= ScriptOneUserGeneratorController::actionEntry(); ?>
+
+
+
+    <?php $form = ActiveForm::begin(['action' =>['site/send'], 'id' => 'forum_post', 'method' => 'post']); ?>
+
+        <?= Html::hiddenInput('test', "test") ?>
+
+        <?= $form->field($model, 'hidden1')->hiddenInput(['value'=> "test2"])->label(false) ?>
+
+
+        <div class="form-group">
+            <?= Html::submitButton('Send Model Form', ['class' => 'btn btn-primary']) ?>
+        </div>
+
+    <?php ActiveForm::end(); ?>
+
+
 </div>

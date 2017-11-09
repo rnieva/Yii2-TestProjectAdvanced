@@ -38,34 +38,38 @@ $lookup_response = $geo_coding_client->lookup([
 $lat = isset($lookup_response->results[0]->geometry->location->lat) ? $lookup_response->results[0]->geometry->location->lat : null;
 $lng = isset($lookup_response->results[0]->geometry->location->lng) ? $lookup_response->results[0]->geometry->location->lng : null;
 
-//if (!is_null($lat) && !is_null($lng)) {
-//    $marker = new \dosamigos\google\maps\overlays\Marker([
-//        'position' => new \dosamigos\google\maps\LatLng([
-//            'lat' => $lat,
-//            'lng' => $lng,
-//        ]),
-//        'title'    => 'Station Amsterdam',
-//    ]);
-//}
+
+$coord = new LatLng(['lat' => $lat, 'lng' => $lng]);
+
+if (!is_null($lat) && !is_null($lng)) {
+    $marker = new \dosamigos\google\maps\overlays\Marker([
+        'position' => new \dosamigos\google\maps\LatLng([
+            'lat' => $lat,
+            'lng' => $lng,
+        ]),
+        'title'    => 'Station Amsterdam',
+    ]);
+}
 
 // Lets add a marker now
-$marker = new Marker([
-    'position' => $coord,
-    'title' => 'My Home Town',
-]);
-// Provide a shared InfoWindow to the marker
-$marker->attachInfoWindow(
-    new InfoWindow([
-        'content' => '<p>This is my home town</p>'
-    ])
-);
+//$marker = new Marker([
+//    'position' => $coord,
+//    'title' => 'My Home Town',
+//]);
+//// Provide a shared InfoWindow to the marker
+//$marker->attachInfoWindow(
+//    new InfoWindow([
+//        'content' => '<p>This is my home town</p>'
+//    ])
+//);
 $circle = new \dosamigos\google\maps\overlays\Circle([
     'center' => $coord,
     'strokeColor'=> '#FF0000',
     'strokeOpacity'=> 0.8,
     'strokeWeight'=> 2,
     'fillColor'=> '#FF0000',
-    'fillOpacity'=> 0.35
+    'fillOpacity'=> 0.35,
+    'radius' => 1000,
 ]);
 
 
@@ -73,9 +77,8 @@ $circle = new \dosamigos\google\maps\overlays\Circle([
 $map->addOverlay($circle);
 
 
-//$map->addOverlay($marker);
-// Display the map
-//echo $map->display();
+$map->addOverlay($marker);
+
 $map->center = $map->getMarkersCenterCoordinates();
 $map->zoom = $map->getMarkersFittingZoom() - 1;
 echo $map->display();

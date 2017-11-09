@@ -18,4 +18,11 @@ class Map extends Model
             [['city'], 'required'],  //required
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'power',
+        ];
+    }
 }

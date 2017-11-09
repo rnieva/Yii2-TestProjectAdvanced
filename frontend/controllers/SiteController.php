@@ -23,9 +23,6 @@ class SiteController extends Controller
     public function actionEntry()
     {
         $model = new EntryForm();
-
-
-
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // valid data received in $model
 
@@ -39,6 +36,21 @@ class SiteController extends Controller
             return $this->render('entry', ['model' => $model]);
         }
     }
+
+
+    public function actionSend()      //action created to test send a hiden model
+    {
+        $model = new EntryForm();
+        $model->load(Yii::$app->request->post());
+
+        if ($model->load(Yii::$app->request->post())) {
+
+        }
+        return $this->render('test-model');
+    }
+
+
+
     /**
      * @inheritdoc
      */

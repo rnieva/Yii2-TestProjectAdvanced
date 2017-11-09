@@ -14,6 +14,7 @@ $this->title = 'My 1 Yii Application';
         <li>DB Managed: CRUD</li>
         <li>Maps</li>
         <li>Partial Views</li>
+        <li>Login</li>
 
     </div>
 
@@ -25,6 +26,7 @@ $this->title = 'My 1 Yii Application';
 
                 <p>Data Base</p>
                 <p>Slappasswd</p>
+                <p>Google Maps API library for Yii2</p>
 
             </div>
             <div class="col-lg-4">
