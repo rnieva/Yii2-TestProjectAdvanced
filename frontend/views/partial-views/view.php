@@ -6,6 +6,7 @@ use common\widgets\Alert;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
 
+/* var $id */
 
 $response = "";
 ?>
@@ -36,7 +37,11 @@ $response = "";
     <?=$this->render('view2.php')?>
 </div>
 <div class="row">
-    <div id="test"></div>
+    <?php Pjax::begin() ?>
+
+    <?= Html::a('View1', ['partial-views/view1', 'username' => "view1"], ['class' => 'btn btn-success', 'id' => 'view1'] ) ?>
+
+    <?php Pjax::end(); ?>
 </div>
 <div class="row">
     <div id="view4"></div>
@@ -61,16 +66,13 @@ $response = "";
     });
 </script>
 
-
-<div id="partial"></div>
-
-<button type="button" id="load-partial" />
-
-<script type="text/javascript">
-    $('#load-partial').click(function(){
-    $('#partial').load('/partial-views/view3');
-    });
-</script>
+<?php //Pjax::begin(); ?>
+<?//= Html::beginForm(['partial-views/view4'], 'post', ['data-pjax' => '', 'class' => 'form-inline']); ?>
+<!---->
+<?//= Html::submitButton('Hash String', ['class' => 'btn btn-lg btn-primary', 'name' => 'hash-button']) ?>
+<?//= Html::endForm() ?>
+<!--<h3>--><?//= $id ?><!--</h3>-->
+<?php //Pjax::end(); ?>
 
 
 

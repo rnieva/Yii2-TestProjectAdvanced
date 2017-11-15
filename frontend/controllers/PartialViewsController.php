@@ -46,7 +46,7 @@ class PartialViewsController extends Controller
 
     public function actionView3()
     {
-        return $this->renderPartial('view3');
+        return $this->renderPartial ('view3');
     }
 
     public function actionView4($id)
@@ -56,7 +56,8 @@ class PartialViewsController extends Controller
 //        }else{
 //
 //        }
-        return $this->renderPartial('view4',['id'=> $id]);
+//        return $this->renderPartial('view4',['id'=> $id]);
+        return $this->renderAjax('view4',['id'=> $id]);  //  return $this->renderPartial('view4',['id'=> $id]);
     }
 
 //http://blog.neattutorials.com/yii2-pjax-tutorial/

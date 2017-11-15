@@ -89,6 +89,18 @@ AppAsset::register($this);
 
     ]);
 
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'items' => [
+
+            ['label' => 'Test Api', 'items' => [
+                ['label' => 'Test Api', 'url' => ['/test-api-file-maker/test-connect']],
+            ]],
+
+        ],
+
+    ]);
+
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
