@@ -24,6 +24,12 @@ class MapController extends Controller
         $model = new Map();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            $POST_VARIABLE=Yii::$app->request->post('Map');
+            $power  = $POST_VARIABLE['power'];
+            $model -> power = $power[0];
+            $model -> kindbomb = $POST_VARIABLE['kindbomb'];
+
             return $this->render('map-confirm', ['model' => $model]);
         } else {
             // either the page is initially displayed or there is some validation error

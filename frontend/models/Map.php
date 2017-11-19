@@ -11,6 +11,7 @@ class Map extends Model
     public $log;
     public $lat;
     public $power;
+    public $kindbomb;
 
     public function rules()
     {

@@ -62,6 +62,26 @@ if (!is_null($lat) && !is_null($lng)) {
 //        'content' => '<p>This is my home town</p>'
 //    ])
 //);
+
+$radio = 1;
+switch ($model->power) {
+    case 1:
+        $radio = ($model->power)*1000;
+        break;
+    case 2:
+        $radio = ($model->power)*2000;
+        break;
+    case 3:
+        $radio = ($model->power)*3000;
+        break;
+    case 4:
+        $radio = ($model->power)*4000;
+        break;
+    case 5:
+        $radio = ($model->power)*5000;
+        break;
+}
+
 $circle = new \dosamigos\google\maps\overlays\Circle([
     'center' => $coord,
     'strokeColor'=> '#FF0000',
@@ -69,18 +89,28 @@ $circle = new \dosamigos\google\maps\overlays\Circle([
     'strokeWeight'=> 2,
     'fillColor'=> '#FF0000',
     'fillOpacity'=> 0.35,
+    'radius' => $radio,
+]);
+
+$circle2 = new \dosamigos\google\maps\overlays\Circle([
+    'center' => $coord,
+    'strokeColor'=> '#1500ff',
+    'strokeOpacity'=> 0.8,
+    'strokeWeight'=> 2,
+    'fillColor'=> '#1500ff',
+    'fillOpacity'=> 0.35,
     'radius' => 1000,
 ]);
 
-
 // Add it now to the map
 $map->addOverlay($circle);
+$map->addOverlay($circle2);
 
 
 $map->addOverlay($marker);
 
 $map->center = $map->getMarkersCenterCoordinates();
-$map->zoom = $map->getMarkersFittingZoom() - 1;
+$map->zoom = $map->getMarkersFittingZoom() - $model->power;
 echo $map->display();
 
 ?>
