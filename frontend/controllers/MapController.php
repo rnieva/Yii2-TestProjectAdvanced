@@ -28,7 +28,8 @@ class MapController extends Controller
             $POST_VARIABLE=Yii::$app->request->post('Map');
             $power  = $POST_VARIABLE['power'];
             $model -> power = $power[0];
-            $model -> kindbomb = $POST_VARIABLE['kindbomb'];
+            $kindbomb = $POST_VARIABLE['kindbomb'];
+            $model -> kindbomb = $kindbomb[0];
 
             return $this->render('map-confirm', ['model' => $model]);
         } else {

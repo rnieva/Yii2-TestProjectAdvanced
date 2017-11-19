@@ -12,12 +12,14 @@ use dosamigos\google\maps\services\DirectionsRequest;
 use dosamigos\google\maps\overlays\Polygon;
 use dosamigos\google\maps\layers\BicyclingLayer;
 use dosamigos\google\maps\LatLng;
+/* @var $model app\models\Map */
 ?>
 <p>Information:</p>
 
 <ul>
     <li><label>City</label>: <?= Html::encode($model->city) ?></li>
     <li><label>Power</label>: <?= Html::encode($model->power) ?></li>
+    <li><label>Kind of Bomb</label>: <?= Html::encode($model->kindbomb) ?></li>
 </ul>
 
 <?=
