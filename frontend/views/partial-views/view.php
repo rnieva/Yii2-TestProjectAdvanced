@@ -59,6 +59,10 @@ $response = "";
 
 <?php Pjax::end(); ?>
 
+<?php Pjax::begin(); $time="0" ?>
+<?= Html::a("Refresh", ['partial-views/time'], ['class' => 'btn btn-lg btn-primary']);?>
+<h1>Current time: <?= $time ?></h1>
+<?php Pjax::end(); ?>
 
 <script type="text/javascript">
     $("#test").click(function(){
@@ -66,13 +70,7 @@ $response = "";
     });
 </script>
 
-<?php //Pjax::begin(); ?>
-<?//= Html::beginForm(['partial-views/view4'], 'post', ['data-pjax' => '', 'class' => 'form-inline']); ?>
-<!---->
-<?//= Html::submitButton('Hash String', ['class' => 'btn btn-lg btn-primary', 'name' => 'hash-button']) ?>
-<?//= Html::endForm() ?>
-<!--<h3>--><?//= $id ?><!--</h3>-->
-<?php //Pjax::end(); ?>
+
 
 
 

@@ -74,4 +74,9 @@ class PartialViewsController extends Controller
             'stringHash' => $stringHash,
         ]);
     }
+
+    public function actionTime()
+    {
+        return $this->render('view', ['time' => date('H:i:s')]);
+    }
 }
