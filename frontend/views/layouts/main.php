@@ -58,6 +58,7 @@ AppAsset::register($this);
                 ['label' => 'User Script', 'url' => ['/script-one-user/entry']],
                 ['label' => 'User Script Generator', 'url' => ['/script-one-user-generator/entry']],
                 ['label' => 'Users Script Import', 'url' => ['/script-one-user-importfile/entry']],
+                ['label' => 'Test File', 'url' => ['/test-file/entry']],
             ]],
 
         ],
