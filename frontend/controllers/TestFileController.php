@@ -40,8 +40,19 @@ class TestFileController extends Controller
         }
     }
 
-    public function action2()
+    public function actionEntry2()
     {
+        $model = new FileForm();
 
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if ($model->file != null)
+            {
+                $model->upload();
+            }
+
+            return $this->render('entry-confirm2', ['model' => $model]);
+        }
     }
 }

@@ -21,13 +21,14 @@ use yii\widgets\ActiveForm;
 <p> Test go to controller</p>
 <div class="row">
     <p>
-        <?= Html::a('Test', ['test-file/action2', 'name' => $model-> name, 'email' => $model-> email], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Test', ['test-file/entry2', 'name' => $model-> name, 'email' => $model-> email, 'file' => $model->file], ['class' => 'btn btn-success']) ?>
     </p>
 
 
-    <?php $form = ActiveForm::begin(['action' =>['site/send'], 'id' => 'forum_post', 'method' => 'post']); ?>
+    <?php $form = ActiveForm::begin(['action' =>['test-file/entry2'], 'id' => 'forum_post', 'method' => 'post']); ?>
 
         <?= Html::hiddenInput('test', "test") ?>
+    <?= Html::hiddenInput('file', $model->file) ?>
 
         <?= $form->field($model, 'hidden1')->hiddenInput(['value'=> "test2"])->label(false) ?>
 
