@@ -27,11 +27,10 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['action' =>['test-file/entry2'], 'id' => 'forum_post', 'method' => 'post']); ?>
 
-        <?= Html::hiddenInput('test', "test") ?>
-    <?= Html::hiddenInput('file', $model->file) ?>
+        <?= Html::hiddenInput('test', $model-> name) ?>
+        <?= Html::hiddenInput('file', $model->file) ?>
 
         <?= $form->field($model, 'hidden1')->hiddenInput(['value'=> "test2"])->label(false) ?>
-
 
         <div class="form-group">
             <?= Html::submitButton('Send Model Form', ['class' => 'btn btn-primary']) ?>

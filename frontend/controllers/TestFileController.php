@@ -44,7 +44,7 @@ class TestFileController extends Controller
     {
         $model = new FileForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load(Yii::$app->request->post()) ) {
 
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file != null)
