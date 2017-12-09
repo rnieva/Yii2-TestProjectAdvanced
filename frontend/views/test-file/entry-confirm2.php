@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 <ul>
 
     <li><label>Picture</label>: <?= Html::encode($model->file) ?></li>
-    <?= Html::img('uploads/'.$model->file , ['alt' => 'pic not found', 'width' => '200px', 'height' => '110px']) ?>
+    <?= Html::img($model->urlFile , ['alt' => 'pic not found', 'width' => '200px', 'height' => '110px']) ?>
     <p></p>
 </ul>
 

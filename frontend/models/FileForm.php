@@ -17,6 +17,7 @@ class FileForm extends Model
     public $email;
     public $title;
     public $file;
+    public $urlFile;
 
     public function rules()         //Como las anotaciones
     {

@@ -23,14 +23,15 @@ class TestFileController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
 
-            $POST_VARIABLE=Yii::$app->request->post('EntryForm');
-            $title  = $POST_VARIABLE['title'];
+            $POST_VARIABLE=Yii::$app->request->post('FileForm');
+            $title  = $POST_VARIABLE['name'];
             $model->title = $title[0];
 
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file != null)
             {
                 $model->upload();
+                $model->urlFile = 'uploads/'.$model->file;
             }
 
             return $this->render('entry-confirm', ['model' => $model]);
@@ -46,6 +47,8 @@ class TestFileController extends Controller
 
         if ($model->load(Yii::$app->request->post()) ) {
 
+
+
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file != null)
             {
@@ -54,5 +57,12 @@ class TestFileController extends Controller
 
             return $this->render('entry-confirm2', ['model' => $model]);
         }
+    }
+
+    public function actionEntry3($name, $email, $urlFile)
+    {
+        $model = new FileForm();
+        $model->urlFile = $urlFile;
+        return $this->render('entry-confirm2', ['model' => $model]);
     }
 }
