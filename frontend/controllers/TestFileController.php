@@ -47,8 +47,6 @@ class TestFileController extends Controller
 
         if ($model->load(Yii::$app->request->post()) ) {
 
-
-
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file != null)
             {
