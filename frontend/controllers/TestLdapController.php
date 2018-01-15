@@ -31,7 +31,7 @@ class TestLdapController extends Controller
             TestLdapController::connectLdap();
 
 
-            return $this->render('entry-confirm-form1', ['model' => $model, 'resultTemp' => $resultTemp]);
+            return $this->render('entry-confirm-form1', ['model' => $model]);
         } else {
             // either the page is initially displayed or there is some validation error
             return $this->render('entry-form1', ['model' => $model]);
