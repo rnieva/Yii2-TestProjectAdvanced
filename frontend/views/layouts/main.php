@@ -102,6 +102,18 @@ AppAsset::register($this);
 
     ]);
 
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'items' => [
+
+            ['label' => 'Test LDAP', 'items' => [
+                ['label' => 'Test LDAP', 'url' => ['/test-ldap/entry']],
+            ]],
+
+        ],
+
+    ]);
+
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
