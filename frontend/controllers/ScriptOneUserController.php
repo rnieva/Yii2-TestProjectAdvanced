@@ -20,7 +20,7 @@ class ScriptOneUserController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // valid data received in $model
             // read the data users
-            $POST_VARIABLE=Yii::$app->request->post('Datauserinput');
+            $POST_VARIABLE=Yii::$app->request->post('DatauserInput');
             $firstname  = $POST_VARIABLE['firstname'];
             $surname = $POST_VARIABLE['surname'];
             $model->firstname = $firstname;             // if I not validate I have to do this to pass values in the model to the view
@@ -35,6 +35,8 @@ class ScriptOneUserController extends Controller
             $search  = array('USERNAME', 'FIRSTNAME', 'SURNAME', 'MAGSTRIPE', 'MOODLEID', 'UIDNUMBER','SHAPASSWORD');
             $replace = array($username, $firstname, $surname, $magstripe, $moodleid, $uidnumber, $shapass);
             $resultTemp=str_replace($search, $replace, $varfile);
+            ScriptOneUserController::generateFile($username, $firstname, $surname, $magstripe, $moodleid, $uidnumber, $shapass);
+
             return $this->render('entry-confirm-form1', ['model' => $model, 'resultTemp' => $resultTemp]);
         } else {
             // either the page is initially displayed or there is some validation error
@@ -42,5 +44,13 @@ class ScriptOneUserController extends Controller
         }
     }
 
+    public function generateFile($username, $firstname, $surname, $magstripe, $moodleid, $uidnumber, $shapass)
+    {
+        $file = '/var/www/html/TestProjectAdvanced/frontend/web/profiles/'.$firstname.'.txt';
+
+        $content = $firstname."\n".$surname;
+
+        file_put_contents($file, $content, FILE_APPEND | LOCK_EX);
+    }
 
 }
